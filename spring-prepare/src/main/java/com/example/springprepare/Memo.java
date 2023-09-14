@@ -1,10 +1,11 @@
 package com.example.springprepare;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Memo {
     private String username;
     private String contents;
