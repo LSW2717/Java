@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Query Apply</title>
+</head>
+<body>
+<h1>Query Apply</h1>
+
+<form th:action="@{/}" th:object="${queryForm}" method="post">
+    <div>
+        <label for="query">Query</label>
+        <input id="query" th:field="${queryForm.query}" type="text" required placeholder="Query" />
+    </div>
+    <div>
+        <input type="submit" value="Apply" />
+    </div>
+</form>
+<div th:if="${queryForm.query}">
+    <span>Query:</span><br/><span th:text="${queryForm.query}"></span>
+</div>
+<div th:if="${data}">
+    <span>Result:</span><br/>
+    <span th:each="item : ${data}" th:utext="${item} + '<br/>'">Data item</span>
+</div>
+</body>
+</html>

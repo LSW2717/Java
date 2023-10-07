@@ -26,6 +26,8 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.thymeleaf:thymeleaf-spring5:3.0.13.RELEASE' // 버전은 적절하게 조정할 수 있습니다.
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
     // JPA 설정
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
