@@ -1,0 +1,75 @@
+<!--<div th:replace="layout :: content">-->
+<h1 th:text="${main_title}">Main Title Placeholder</h1>
+
+<!--Building-->
+<h2 th:text="${title1}">Title 1 Placeholder</h2>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+    </tr>
+    <tr th:each="building : ${Building}">
+        <td th:text="${building.Id}">Placeholder Id</td>
+        <td th:text="${building.Name}">Placeholder Name</td>
+    </tr>
+</table>
+
+<!--Department-->
+<h2 th:text="${title2}">Title 2 Placeholder</h2>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone number</td>
+    </tr>
+    <tr th:each="department : ${Department}">
+        <td th:text="${department.Id}">Placeholder Id</td>
+        <td th:text="${department.Name}">Placeholder Name</td>
+        <td th:text="${department.Email}">Placeholder Email</td>
+        <td th:text="${department.PhoneNumber}">Placeholder Phone Number</td>
+    </tr>
+</table>
+
+<!--Room-->
+<h2 th:text="${title3}">Title 3 Placeholder</h2>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Capacity</td>
+        <td>Building Id</td>
+        <td>Department Id</td>
+    </tr>
+    <tr th:each="room : ${Room}">
+        <td th:text="${room.id}">Placeholder Id</td>
+        <td th:text="${room.Name}">Placeholder Name</td>
+        <td th:text="${room.Capacity}">Placeholder Capacity</td>
+        <td th:text="${room.building_Id}">Placeholder Building Id</td>
+        <td th:text="${room.Department_Id}">Placeholder Department Id</td>
+    </tr>
+</table>
+
+<!--Student-->
+<h2 th:text="${title4}">Title 4 Placeholder</h2>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone number</td>
+        <td>Major</td>
+    </tr>
+    <tr th:each="student : ${Student}">
+        <td th:text="${student.Id}">Placeholder Id</td>
+        <td th:text="${student.Name}">Placeholder Name</td>
+        <td th:text="${student.Email}">Placeholder Email</td>
+        <td th:text="${student.PhoneNumber}">Placeholder Phone Number</td>
+        <td th:text="${student.Major}">Placeholder Major</td>
+    </tr>
+</table>
+<!--</div>-->

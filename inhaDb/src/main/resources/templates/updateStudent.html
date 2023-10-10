@@ -1,0 +1,34 @@
+<h1 th:text="${main_title}">Main Title Placeholder</h1>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone_number</td>
+        <td>Major</td>
+    </tr>
+    <tr th:each="student : ${student_res}">
+        <form method="post" th:action="@{/update/student}">
+            <td th:text="${student.Id}">Placeholder Id</td>
+            <td style="display: none">
+                <input type="text" name="id" th:value="${student.Id}" />
+            </td>
+            <td>
+                <input type="text" name="name" th:value="${student.Name}" />
+            </td>
+            <td>
+                <input type="text" name="email" th:value="${student.Email}" />
+            </td>
+            <td>
+                <input type="text" name="phonenumber" th:value="${student.PhoneNumber}" />
+            </td>
+            <td>
+                <input type="text" name="major" th:value="${student.Major}" />
+            </td>
+            <td>
+                <input type="submit" value="Modify" />
+            </td>
+        </form>
+    </tr>
+</table>

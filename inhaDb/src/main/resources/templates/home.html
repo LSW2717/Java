@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Insert Student</title>
+</head>
+<body>
+<h1>Insert Student</h1>
+<form th:action="@{/}" th:object="${student}" method="post">
+    <div>
+        <label for="id">Id</label>
+        <input id="id" th:field="*{id}" type="text" required placeholder="Id" />
+    </div>
+    <div>
+        <label for="name">Name</label>
+        <input id="name" th:field="*{name}" type="text" required placeholder="Name" />
+    </div>
+    <div>
+        <label for="email">E-mail</label>
+        <input id="email" th:field="*{email}" type="text" placeholder="email" />
+    </div>
+    <div>
+        <label for="phoneNumber">Phone Number</label>
+        <input id="phoneNumber" th:field="*{phoneNumber}" type="text" required placeholder="000-0000-0000" />
+    </div>
+    <div>
+        <label for="major">Major</label>
+        <input id="major" th:field="*{major}" type="text" required placeholder="major" />
+    </div>
+    <div>
+        <input type="submit" value="insert" />
+    </div>
+</form>
+</body>
+</html>
