@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter @Setter
 public class Room {
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     private Long id;
 
     @Column(name = "Name")

@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter @Setter
 public class Student {
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     private Long id;
 
     @Column(name = "Name")

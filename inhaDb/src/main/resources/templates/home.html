@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Insert Student</title>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title Placeholder</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            width: 100px;
+            height: 20px;
+        }
+    </style>
 </head>
 <body>
+<div th:utext="${body}">Body Placeholder</div>
+
 <h1>Insert Student</h1>
 <form th:action="@{/}" th:object="${student}" method="post">
     <div>
@@ -30,5 +44,9 @@
         <input type="submit" value="insert" />
     </div>
 </form>
+
+<!-- Content placeholder -->
+<th:block th:fragment="content"></th:block>
+
 </body>
 </html>

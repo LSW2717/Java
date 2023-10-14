@@ -26,25 +26,21 @@
         <td>Name</td>
         <td>Email</td>
         <td>Phone_number</td>
-        <td>Major</td>
     </tr>
-    <tr th:each="student : ${student_res}">
-        <form method="post" th:action="@{/update/student}" th:object="${student}">
-            <td th:text="${student.Id}">Placeholder Id</td>
+    <tr th:each="department : ${department_res}">
+        <form method="post" th:action="@{/update/department}" th:object="${department}">
+            <td th:text="${department.Id}">Placeholder Id</td>
             <td style="display: none">
-                <input type="text" name="id" th:value="${student.Id}" />
+                <input type="text" name="id" th:value="${department.Id}" />
             </td>
             <td>
-                <input type="text" name="name" th:value="${student.Name}" />
+                <input type="text" name="name" th:value="${department.Name}" />
             </td>
             <td>
-                <input type="text" name="email" th:value="${student.Email}" />
+                <input type="text" name="email" th:value="${department.Email}" />
             </td>
             <td>
-                <input type="text" name="phoneNumber" th:value="${student.PhoneNumber}" />
-            </td>
-            <td>
-                <input type="text" name="major" th:value="${student.Major}" />
+                <input type="text" name="phoneNumber" th:value="${department.PhoneNumber}" />
             </td>
             <td>
                 <input type="submit" value="Modify" />

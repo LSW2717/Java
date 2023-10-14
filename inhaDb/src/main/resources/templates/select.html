@@ -1,23 +1,41 @@
-<!--<div th:replace="layout :: content">-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title Placeholder</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            width: 100px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<div th:utext="${body}">Body Placeholder</div>
+
+<!-- Content -->
 <h1 th:text="${main_title}">Main Title Placeholder</h1>
 
 <!--Building-->
 <h2 th:text="${title1}">Title 1 Placeholder</h2>
-
 <table>
     <tr>
         <td>Id</td>
         <td>Name</td>
     </tr>
     <tr th:each="building : ${Building}">
-        <td th:text="${building.Id}">Placeholder Id</td>
-        <td th:text="${building.Name}">Placeholder Name</td>
+        <td th:text="${building.id}">Placeholder Id</td>
+        <td th:text="${building.name}">Placeholder Name</td>
     </tr>
 </table>
 
 <!--Department-->
 <h2 th:text="${title2}">Title 2 Placeholder</h2>
-
 <table>
     <tr>
         <td>Id</td>
@@ -26,36 +44,32 @@
         <td>Phone number</td>
     </tr>
     <tr th:each="department : ${Department}">
-        <td th:text="${department.Id}">Placeholder Id</td>
-        <td th:text="${department.Name}">Placeholder Name</td>
-        <td th:text="${department.Email}">Placeholder Email</td>
-        <td th:text="${department.PhoneNumber}">Placeholder Phone Number</td>
+        <td th:text="${department.id}">Placeholder Id</td>
+        <td th:text="${department.name}">Placeholder Name</td>
+        <td th:text="${department.email}">Placeholder Email</td>
+        <td th:text="${department.phoneNumber}">Placeholder Phone Number</td>
     </tr>
 </table>
 
 <!--Room-->
 <h2 th:text="${title3}">Title 3 Placeholder</h2>
-
 <table>
     <tr>
         <td>Id</td>
         <td>Name</td>
         <td>Capacity</td>
         <td>Building Id</td>
-        <td>Department Id</td>
     </tr>
     <tr th:each="room : ${Room}">
         <td th:text="${room.id}">Placeholder Id</td>
-        <td th:text="${room.Name}">Placeholder Name</td>
-        <td th:text="${room.Capacity}">Placeholder Capacity</td>
-        <td th:text="${room.building_Id}">Placeholder Building Id</td>
-        <td th:text="${room.Department_Id}">Placeholder Department Id</td>
+        <td th:text="${room.name}">Placeholder Name</td>
+        <td th:text="${room.capacity}">Placeholder Capacity</td>
+        <td th:text="${room.building.id}">Placeholder Building Id</td>
     </tr>
 </table>
 
 <!--Student-->
 <h2 th:text="${title4}">Title 4 Placeholder</h2>
-
 <table>
     <tr>
         <td>Id</td>
@@ -65,11 +79,30 @@
         <td>Major</td>
     </tr>
     <tr th:each="student : ${Student}">
-        <td th:text="${student.Id}">Placeholder Id</td>
-        <td th:text="${student.Name}">Placeholder Name</td>
-        <td th:text="${student.Email}">Placeholder Email</td>
-        <td th:text="${student.PhoneNumber}">Placeholder Phone Number</td>
-        <td th:text="${student.Major}">Placeholder Major</td>
+        <td th:text="${student.id}">Placeholder Id</td>
+        <td th:text="${student.name}">Placeholder Name</td>
+        <td th:text="${student.email}">Placeholder Email</td>
+        <td th:text="${student.phoneNumber}">Placeholder Phone Number</td>
+        <td th:text="${student.major}">Placeholder Major</td>
     </tr>
 </table>
-<!--</div>-->
+
+<!--Lecture-->
+<h2 th:text="${title5}">Title 5 Placeholder</h2>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Professor</td>
+        <td>NumberOfParticipants</td>
+    </tr>
+    <tr th:each="lecture : ${Lecture}">
+        <td th:text="${lecture.id}">Placeholder Id</td>
+        <td th:text="${lecture.name}">Placeholder Name</td>
+        <td th:text="${lecture.professor}">Placeholder Professor</td>
+        <td th:text="${lecture.numberOfParticipants}">Placeholder NumberOfParticipants</td>
+    </tr>
+</table>
+
+</body>
+</html>

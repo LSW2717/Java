@@ -24,6 +24,7 @@ public class OrderRepository {
     public Order findOne(Long id) {
         return em.find(Order.class, id);
     }
+
     //주문 검색
     public List<Order> findAllByString(OrderSearch orderSearch) {
         //language=JPAQL
@@ -49,7 +50,7 @@ public class OrderRepository {
             }
             jpql += " m.name like :name";
         }
-        TypedQuery<Order> query = em.createQuery(jpql, Order.class) .setMaxResults(1000); //최대 1000건
+        TypedQuery<Order> query = em.createQuery(jpql, Order.class).setMaxResults(1000); //최대 1000건
         if (orderSearch.getOrderStatus() != null) {
             query = query.setParameter("status", orderSearch.getOrderStatus());
         }
@@ -58,6 +59,24 @@ public class OrderRepository {
         }
         return query.getResultList();
     }
+
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class
+        ).getResultList();
+    }
+
+    public List<OrderSimpleQueryDto> findOrderDtos(){
+        return em.createQuery(
+                "select new jpabook.jpashop.repository.OrderSimpleQueryDto(o.id, m.name, o.orderDate, o.status, d.address)" +
+                        " from Order o" +
+                        " join o.member m" +
+                        " join o.delivery d", OrderSimpleQueryDto.class)
+                .getResultList();
+    }
+}
 //    public List<Order> findAllByCriteria(OrderSearch orderSearch) {
 //        CriteriaBuilder cb = em.getCriteriaBuilder();
 //        CriteriaQuery<Order> cq = cb.createQuery(Order.class);
@@ -81,4 +100,4 @@ public class OrderRepository {
 //        TypedQuery<Order> query = em.createQuery(cq).setMaxResults(1000); //최대 1000건
 //        return query.getResultList();
 //    }
-}
+//}

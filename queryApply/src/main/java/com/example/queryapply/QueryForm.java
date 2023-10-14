@@ -7,5 +7,4 @@ import lombok.Setter;
 public class QueryForm {
     private String query;
 
-    // getters and setters
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Getter @Setter
 public class Club {
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     private Long id;
 
     @Column(name = "name")

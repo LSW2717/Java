@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -14,19 +15,40 @@ import java.util.List;
 public class StudentService {
 
     private final StudentRepository studentRepository;
-
+    // Create
     @Transactional
-    public Long save(Student student){
+    public void save(Student student) {
         studentRepository.save(student);
-        return student.getId();
     }
 
-    public Student findOne(Long studentId){
-        return studentRepository.findOne(studentId);
+    // Read single
+    public Optional<Student> findById(Long id) {
+        return studentRepository.findById(id);
     }
 
-    public List<Student> findStudents(){
+    // Read all
+    public List<Student> findAll() {
         return studentRepository.findAll();
     }
 
+    // Update
+    @Transactional
+    public Student update(Long id, Student studentDetails) {
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + id));
+
+        student.setName(studentDetails.getName());
+        student.setEmail(studentDetails.getEmail());
+        student.setPhoneNumber(studentDetails.getPhoneNumber());
+        student.setMajor(studentDetails.getMajor());
+        return studentRepository.save(student);
+    }
+
+    // Delete
+    @Transactional
+    public void delete(Long id) {
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + id));
+        studentRepository.delete(student);
+    }
 }
