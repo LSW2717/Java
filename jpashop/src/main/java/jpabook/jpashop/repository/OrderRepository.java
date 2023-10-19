@@ -16,7 +16,6 @@ import java.util.List;
 public class OrderRepository {
 
     private final EntityManager em;
-
     public void save(Order order) {
         em.persist(order);
     }
@@ -68,14 +67,34 @@ public class OrderRepository {
         ).getResultList();
     }
 
-    public List<OrderSimpleQueryDto> findOrderDtos(){
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList();
+    }
+
+    public List<OrderSimpleQueryDto> findOrderDtos() {
         return em.createQuery(
                 "select new jpabook.jpashop.repository.OrderSimpleQueryDto(o.id, m.name, o.orderDate, o.status, d.address)" +
                         " from Order o" +
                         " join o.member m" +
-                        " join o.delivery d", OrderSimpleQueryDto.class)
-                .getResultList();
+                        " join o.delivery d", OrderSimpleQueryDto.class
+        ).getResultList();
     }
+
+    public List<Order> findAllWithItem() {
+        return em.createQuery(
+                "select distinct o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d" +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item i", Order.class)
+                .getResultList();
+    }//join fetch는 두개정도 있을때만 사용하자 많이 사용할 때는 페이징이 안돼서 큰일난다.
 }
 //    public List<Order> findAllByCriteria(OrderSearch orderSearch) {
 //        CriteriaBuilder cb = em.getCriteriaBuilder();

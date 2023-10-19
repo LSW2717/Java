@@ -20,6 +20,6 @@ public class Lecture {
     @Column(name = "Number_of_Participants")
     private Long numberOfParticipants;
 
-    @OneToOne(mappedBy = "lecture")
+    @OneToOne(mappedBy = "lecture", cascade = CascadeType.ALL)
     private Room room;
 }

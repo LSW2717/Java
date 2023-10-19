@@ -18,11 +18,11 @@ public class Room {
     @Column(name = "Capacity")
     private Long capacity;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "building_Id")
     private Building building;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lecture_Id")
     private Lecture lecture;
 

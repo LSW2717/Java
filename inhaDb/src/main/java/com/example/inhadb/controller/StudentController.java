@@ -24,7 +24,7 @@ public class StudentController {
     }
 
     @PostMapping("/")
-    public String handleSubmit(Student student){
+    public String handleSubmit(@ModelAttribute("student") Student student){
         studentService.save(student);
         return "redirect:/";
     }

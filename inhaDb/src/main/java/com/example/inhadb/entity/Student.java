@@ -23,11 +23,11 @@ public class Student {
     @Column(name = "Major")
     private String major;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Department_Id")
     private Department department;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "club_Id")
     private Club club;
 

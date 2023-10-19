@@ -1,7 +1,6 @@
 package com.example.inhadb.controller;
 
 import com.example.inhadb.entity.Department;
-import com.example.inhadb.entity.Student;
 import com.example.inhadb.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

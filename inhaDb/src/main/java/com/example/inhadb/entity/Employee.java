@@ -17,7 +17,7 @@ public class Employee {
     @Column(name = "Position")
     private String position;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "building_Id")
     private Building building;
 }

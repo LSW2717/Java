@@ -17,13 +17,13 @@ public class Building {
     @Column(name = "Name")
     private String name;
 
-    @OneToMany(mappedBy = "building")
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
     private List<Department> departments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "building")
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
     private List<Employee> employees = new ArrayList<>();
 
-    @OneToMany(mappedBy = "building")
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
     private List<Room> rooms = new ArrayList<>();
 
     public void addDepartment(Department department){

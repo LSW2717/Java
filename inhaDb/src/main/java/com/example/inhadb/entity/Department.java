@@ -23,11 +23,11 @@ public class Department {
     @Column(name = "Phone_number")
     private String phoneNumber;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Building_id")
     private Building building;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     private List<Student> students = new ArrayList<>();
 
     public void setBuilding(Building building){
