@@ -5,17 +5,18 @@ public class Main {
         List<Integer> comArrayList = getComIntegers();
         List<Integer> humanArrayList = new ArrayList<>();
         Scanner input = new Scanner(System.in);
-        System.out.println("컴퓨터가 숫자를 생성하였습니다. 답을 맞춰보세요 !");
+        System.out.println("숫자 야구 게임을 시작합니다.");
         for (int number : comArrayList) {
             System.out.println(number);
         }
-        int count = 0;
-        boolean correctAnswer = true;
-        while (correctAnswer) {
+//        int count = 0;
+        int correctAnswer = 1;
+        while (correctAnswer == 1) {
             int ball = 0;
             int strike = 0;
-            ++count;
-            System.out.print(count + "번째 시도 : ");
+//            ++count;
+//            System.out.print(count + "번째 시도 : ");
+            System.out.print("숫자를 입력해주세요 : ");
             int humanInput = input.nextInt();
             String numberString = Integer.toString(humanInput);
             char[] digits = numberString.toCharArray();
@@ -31,16 +32,21 @@ public class Main {
                 }
             }
             if (strike == 3){
-                System.out.println(count + "번만에 맞히셨습니다.");
-                System.out.println("게임을 종료합니다.");
-                correctAnswer = false;
+//                System.out.println(count + "번만에 맞히셨습니다.");
+                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+                System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
+                int end = input.nextInt();
+                correctAnswer = end;
             }
             else{
                 if (strike == 0){
-                    System.out.println(ball + "B");
+                    System.out.println(ball + "볼");
+                }
+                else if(ball == 0){
+                    System.out.println(strike + "스트라이크");
                 }
                 else {
-                    System.out.println(ball + "B" + strike + "S");
+                    System.out.println(ball + "볼 " + strike + "스트라이크");
                 }
             }
             humanArrayList.clear();
