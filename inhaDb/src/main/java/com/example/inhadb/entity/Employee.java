@@ -18,6 +18,6 @@ public class Employee {
     private String position;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "building_Id")
+    @JoinColumn(name = "Building_Id")
     private Building building;
 }

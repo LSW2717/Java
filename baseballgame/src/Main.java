@@ -55,9 +55,9 @@ public class Main {
 
     private static List<Integer> getComIntegers() {
         List<Integer> comArrayList = new ArrayList<>();
-        Random random = new Random();
+        Random randoms = new Random();
         while (comArrayList.size() < 3) {
-            int randomNumber = random.nextInt(10);
+            int randomNumber = randoms.nextInt(10);
             comArrayList.add(randomNumber);
             if (comArrayList.get(0) == 0) {
                 comArrayList.remove(0);

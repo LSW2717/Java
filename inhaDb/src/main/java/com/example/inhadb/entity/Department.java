@@ -24,7 +24,7 @@ public class Department {
     private String phoneNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Building_id")
+    @JoinColumn(name = "Building_Id")
     private Building building;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)

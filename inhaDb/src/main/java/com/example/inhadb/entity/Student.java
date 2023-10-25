@@ -11,24 +11,24 @@ public class Student {
 //    @GeneratedValue
     private Long id;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "Email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "Phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "Major")
+    @Column(name = "major")
     private String major;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Department_Id")
+    @JoinColumn(name = "department_id")
     private Department department;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "club_Id")
+    @JoinColumn(name = "club_id")
     private Club club;
 
     public void setDepartment(Department department){

@@ -11,13 +11,13 @@ public class Lecture {
 //    @GeneratedValue
     private Long id;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "Professor")
+    @Column(name = "professor")
     private String professor;
 
-    @Column(name = "Number_of_Participants")
+    @Column(name = "number_of_Participants")
     private Long numberOfParticipants;
 
     @OneToOne(mappedBy = "lecture", cascade = CascadeType.ALL)
