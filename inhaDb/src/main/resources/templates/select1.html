@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Your Title</title>
+</head>
+
+<body>
+<h1 th:text="${title}"></h1>
+
+<table>
+    <tr>
+        <td>Dname</td>
+        <td>Dnumber</td>
+    </tr>
+    <tr th:each="department : ${departments}">
+        <form method="post" th:action="@{/delete}">
+            <td th:text="${department.Dname}"></td>
+            <td th:text="${department.Dnumber}"></td>
+            <td style="border: none; margin-left: 10px;">
+                <button style="margin-left: 10px;" name='delBtn' type="submit" th:value="${department.Dnumber}">
+                    delete
+                </button>
+            </td>
+        </form>
+    </tr>
+</table>
+</body>
+
+</html>
