@@ -31,6 +31,9 @@ public class Student {
     @JoinColumn(name = "club_id")
     private Club club;
 
+    @Enumerated(EnumType.STRING)
+    private StudentStatus status;
+
     public void setDepartment(Department department){
         this.department = department;
         department.getStudents().add(this);

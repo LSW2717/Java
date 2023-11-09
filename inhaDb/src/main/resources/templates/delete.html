@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lecture List</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            width: 150px;
+            height: 30px;
+        }
+        .no-border {
+            border: none;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Lecture List</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="lecture : ${lectures}">
+        <td th:text="${lecture.id}"></td>
+        <td th:text="${lecture.name}"></td>
+        <td class="no-border">
+            <form th:action="@{/delete/{id}(id=${lecture.id})}" method="post">
+                <button
+                        type="submit"
+                        name="delBtn"
+                        th:value="${lecture.id}"
+                        class="no-border"
+                >
+                    Delete
+                </button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

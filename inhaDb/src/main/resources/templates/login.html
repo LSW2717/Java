@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Login Page</title>
+    <style type="text/css">
+        /* 이전 스타일 시트 코드 */
+        table{border-collapse:collapse}
+        th,td{border:1px solid black; width: 150px; height: 30px}
+
+        /* 추가 스타일 시트 코드 */
+        body {
+            height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .frame {
+            border-radius: 15px;
+            box-sizing: border-box;
+            border: 1px solid #757575;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 350px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #id, #phoneNumber, .btn {
+            font-size: 25px;
+        }
+        .pwd {
+            margin-top: 15px;
+        }
+        .btn {
+            width: 322px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="frame">
+    <h1>Login</h1>
+    <!-- Thymeleaf를 사용하여 POST 방식으로 데이터를 보낼 때의 URL 설정 -->
+    <form id="loginForm" th:action="@{/login}" method="post">
+        <div class="id">
+            <!-- input 태그의 name 속성은 컨트롤러에서 파라미터를 받을 때의 이름과 일치해야 함 -->
+            <input id="id" name="id" type="text" required placeholder="ID">
+        </div>
+        <div class="pwd">
+            <!-- 기존의 password 필드를 phoneNumber로 변경 -->
+            <input id="phoneNumber" name="phoneNumber" type="text" required placeholder="Password">
+        </div>
+        <button class="btn" type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>
